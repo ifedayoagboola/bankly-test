@@ -2,39 +2,35 @@ import React from "react";
 import { useStepperContext } from "../../contexts/StepperContext";
 
 const Confirmation = () => {
-  const { userData, setUserData } = useStepperContext();
+  const { userData } = useStepperContext();
+  console.log(userData);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
   return (
-    <div className="flex flex-col ">
-      <div className="w-full mx-2 flex-1">
-        <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">Credit Card</div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            onChange={handleChange}
-            value={userData["card"] || ""}
-            name="card"
-            placeholder="Credit Card#"
-            className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-          />
-        </div>
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex items-center justify-center gap-4">
+        <p className="text-lg font-semibold">First name:</p>
+        <p className="text-sm font-semibold">{userData.firstname}</p>
       </div>
-      <div className="w-full mx-2 flex-1">
-        <div className="font-bold h-6 mt-3 text-gray-500 text-xs leading-8 uppercase">Exp</div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            onChange={handleChange}
-            value={userData["exp"] || ""}
-            name="exp"
-            placeholder="YY/MM/DD"
-            type="text"
-            className="p-1 px-2 appearance-none outline-none w-full text-gray-800"
-          />
-        </div>
+      <div className="flex items-center justify-center gap-4">
+        <p className="text-lg font-semibold">Last name:</p>
+        <p className="text-sm font-semibold">{userData.lastname}</p>
       </div>
+      <div className="flex items-center justify-center gap-4">
+        <p className="text-lg font-semibold">Phone number:</p>
+        <p className="text-sm font-semibold">{userData.phone}</p>
+      </div>
+      <div className="flex items-center justify-center gap-4">
+        <p className="text-lg font-semibold">State:</p>
+        <p className="text-sm font-semibold">{userData.city}</p>
+      </div>
+      <div className="flex items-center justify-center gap-4">
+        <p className="text-lg font-semibold">Local Government:</p>
+        <p className="text-sm font-semibold">{userData.lg}</p>
+      </div>
+
+      <p className="text-sm font-semibold pt-16 text-red-500">
+        Kindly check that the information above is correct. Click "Confirm" to submit or click "Back" to edit.
+      </p>
     </div>
   );
 };

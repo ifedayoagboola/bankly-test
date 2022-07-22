@@ -11,7 +11,7 @@ import Modal from "./components/Modal";
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
 
-  const steps = ["Account Information", "Personal Details", "Payment", "Complete"];
+  const steps = ["Personal Info", "Location", "Confirmation", "Success"];
 
   const displayStep = (step) => {
     switch (step) {
